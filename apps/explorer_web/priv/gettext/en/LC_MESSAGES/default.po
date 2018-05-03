@@ -30,8 +30,10 @@ msgstr "Age"
 msgid "Block"
 msgstr "Block"
 
+#: lib/explorer_web/templates/chain/_blocks.html.eex:3
 #: lib/explorer_web/templates/chain/show.html.eex:58
 #: lib/explorer_web/templates/layout/app.html.eex:25
+#: lib/explorer_web/templates/layout/app.html.eex:88
 msgid "Blocks"
 msgstr "Blocks"
 
@@ -68,10 +70,12 @@ msgstr "POA Network Explorer"
 #: lib/explorer_web/templates/block/index.html.eex:31
 #: lib/explorer_web/templates/block_transaction/index.html.eex:16
 #: lib/explorer_web/templates/block_transaction/index.html.eex:84
+#: lib/explorer_web/templates/chain/_transactions.html.eex:3
 #: lib/explorer_web/templates/chain/show.html.eex:45
 #: lib/explorer_web/templates/chain/show.html.eex:72
 #: lib/explorer_web/templates/chain/show.html.eex:99
 #: lib/explorer_web/templates/layout/app.html.eex:31
+#: lib/explorer_web/templates/layout/app.html.eex:95
 #: lib/explorer_web/templates/pending_transaction/index.html.eex:12
 #: lib/explorer_web/templates/transaction/index.html.eex:12
 msgid "Transactions"
@@ -246,6 +250,7 @@ msgid "Showing %{count} Transactions"
 msgstr "Showing %{count} Transactions"
 
 #: lib/explorer_web/templates/layout/app.html.eex:36
+#: lib/explorer_web/templates/layout/app.html.eex:100
 #: lib/explorer_web/templates/pending_transaction/index.html.eex:19
 #: lib/explorer_web/templates/pending_transaction/index.html.eex:64
 #: lib/explorer_web/templates/pending_transaction/index.html.eex:76
@@ -364,7 +369,7 @@ msgstr ""
 msgid "Internal Transactions"
 msgstr ""
 
-#: lib/explorer_web/templates/layout/app.html.eex:58
+#: lib/explorer_web/templates/layout/app.html.eex:76
 msgid "Search by address, transaction hash, or block number"
 msgstr ""
 
@@ -410,6 +415,7 @@ msgid "Fee"
 msgstr ""
 
 #: lib/explorer_web/templates/layout/app.html.eex:35
+#: lib/explorer_web/templates/layout/app.html.eex:99
 msgid "Validated"
 msgstr ""
 
@@ -419,4 +425,16 @@ msgstr ""
 
 #: lib/explorer_web/templates/address_internal_transaction/index.html.eex:63
 msgid "Parent Tx Hash"
+msgstr ""
+
+#: lib/explorer_web/templates/layout/app.html.eex:118
+msgid "Change Network"
+msgstr ""
+
+#: lib/explorer_web/templates/layout/app.html.eex:112
+msgid "Smart Contracts"
+msgstr ""
+
+#: lib/explorer_web/templates/layout/app.html.eex:106
+msgid "Tokens"
 msgstr ""

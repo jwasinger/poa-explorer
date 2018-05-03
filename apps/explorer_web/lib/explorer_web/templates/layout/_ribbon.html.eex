@@ -1,0 +1,36 @@
+<div class="panel theme-ribbon">
+    <div class="front card">
+		<button class="rotatecard">
+      <i class="fa fa-cog">
+      </button>
+    <%= link to: chain_path(@conn, :show), "data-test": "header_logo" do %>
+      <img class="theme-logo" src="<%= static_path(@conn, "/images/logo.svg") %>" />
+    <% end %>
+    <div class="header__cell header__cell--social" align="right">
+      <a href="https://www.facebook.com/PoaNetwork/" target="_blank" class="header__link">
+        <div class="social-media">
+          <i class="fa fa-facebook-f"></i>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/PoaNetwork/" target="_blank" class="header__link">
+        <div class="social-media">
+          <i class="fa fa-instagram"></i>
+        </div>
+      </a>
+      <a href="https://www.twitter.com/PoaNetwork/" target="_blank" class="header__link">
+        <div class="social-media">
+          <i class="fa fa-twitter"></i>
+        </div>
+      </a>
+    </div>
+    </div>
+    <div class="back card">
+    	<button class="rotatecardback">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <%= link to: chain_path(@conn, :show), "data-test": "header_logo" do %>
+        <img class="theme-logo" src="<%= static_path(@conn, "/images/logo.svg") %>" />
+      <% end %>
+      Switch Network
+    </div>
+</div>

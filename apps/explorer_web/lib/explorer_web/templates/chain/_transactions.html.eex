@@ -1,0 +1,104 @@
+<div class="blocks container__subsection">
+  <div class="blocks__container blocks__container--title">
+    <h2 class="blocks__title"><%= gettext "Transactions" %></h2>
+    <%= link to: block_path(@conn, :index, Gettext.get_locale), class: "header__link" do %>
+      <div class="button button--secondary button--xsmall u-float-right">View All</div>
+    <% end %>
+  </div>
+    <div class="blocks__container">
+    <table class="blocks__table">
+      <thead class="blocks__header">
+        <th>TX Hash</th>
+        <th class="table--small-colm">From</th>
+        <th>To</th>
+        <th>Value (POA)</th>
+        <th>Age</th>
+      </thead>
+      <tr>
+        <td>
+          <a href="#">
+          <strong>3da279...</strong>
+        </a>
+        </td>
+        <td class="table--small-colm">
+            <i class="fa fa-address-card table--icon"></i>
+            c1ce32...
+        </td>
+        <td class="table--small-colm">
+            <i class="fa fa-file table--icon"></i>
+            c1ce32...
+        </td>
+        <td>40.003</td>
+        <td>1d</td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#">
+          <strong>3da279...</strong>
+        </a>
+        </td>
+        <td class="table--small-colm">
+            <i class="fa fa-address-card table--icon"></i>
+            c1ce32...
+        </td>
+        <td class="table--small-colm">
+            <i class="fa fa-file table--icon"></i>
+            c1ce32...
+        </td>
+        <td>40.003</td>
+        <td>1d</td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#">
+          <strong>3da279...</strong>
+        </a>
+        </td>
+        <td class="table--small-colm">
+            <i class="fa fa-address-card table--icon"></i>
+            c1ce32...
+        </td>
+        <td class="table--small-colm">
+            <i class="fa fa-file table--icon"></i>
+            c1ce32...
+        </td>
+        <td>40.003</td>
+        <td>1d</td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#">
+          <strong>3da279...</strong>
+        </a>
+        </td>
+        <td class="table--small-colm">
+            <i class="fa fa-address-card table--icon"></i>
+            c1ce32...
+        </td>
+        <td class="table--small-colm">
+            <i class="fa fa-file table--icon"></i>
+            c1ce32...
+        </td>
+        <td>40.003</td>
+        <td>1d</td>
+      </tr>
+      <tr>
+        <td>
+          <a href="#">
+          <strong>3da279...</strong>
+        </a>
+        </td>
+        <td class="table--small-colm">
+            <i class="fa fa-address-card table--icon"></i>
+            c1ce32...
+        </td>
+        <td class="table--small-colm">
+            <i class="fa fa-file table--icon"></i>
+            c1ce32...
+        </td>
+        <td>40.003</td>
+        <td>1d</td>
+      </tr>
+    </table>
+  </div>
+</div>

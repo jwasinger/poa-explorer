@@ -20,3 +20,4 @@ import 'bootstrap'
 
 // import socket from "./socket"
 import './lib/sidebar'
+import './lib/card-flip'

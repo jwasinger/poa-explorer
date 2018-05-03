@@ -51,7 +51,7 @@
   </section>
 </section>
 
-<section>
+<!-- <section>
   <section class="container__section container__section--partitioned">
     <div class="blocks container__subsection">
       <div class="blocks__container blocks__container--title">
@@ -141,6 +141,10 @@
           </tbody>
         </table>
       </div>
-    </div>
+    </div> -->
   </section>
+  <section class="container__section container__section--partitioned">
+  <%= render ExplorerWeb.ChainView, "_blocks.html", assigns %>
+  <%= render ExplorerWeb.ChainView, "_transactions.html", assigns %>
+</section>
 </section>

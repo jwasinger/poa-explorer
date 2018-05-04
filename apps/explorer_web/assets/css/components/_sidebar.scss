@@ -3,22 +3,21 @@
     SIDEBAR STYLE
 ----------------------------------------------------- */
 #sidebar  {
-    width: 200px;
-    background: $navbar-light-color;
-    top: 0px;
-    z-index: 9999;
-    height: 100%;
-    position: fixed;
-}
+  width: 200px;
+  background: $navbar-light-color;
+  top: 0px;
+  z-index: 9999;
+  height: 100%;
+  position: fixed;
 
-#sidebar .sidebar-header {
-  background-color: $primary;
-  color: $gray-800;
-  height: 66px;
-  padding: 12px 12px 17px;
-  text-align: center;
-  box-shadow:0 2px 2px 0 rgba(38,50,56,.16), 0 0 2px 0 rgba(38,50,56,.12);
-
+  .sidebar-header {
+    background-color: $primary;
+    color: $gray-800;
+    height: 66px;
+    padding: 12px 12px 17px;
+    text-align: center;
+    box-shadow:0 2px 2px 0 rgba(38,50,56,.16), 0 0 2px 0 rgba(38,50,56,.12);
+  }
 }
 
 #sidebar .menu-items {

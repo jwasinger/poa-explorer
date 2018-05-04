@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+.theme-ribbon {
+  width: 135px;
+  height: 155px;
+  position: absolute;
+  right: 10%;
+  color: white;
+  padding: 10px;
+  box-shadow: 0 2px 2px 0 rgba(#212529, 0.16),
+              0 0px 2px 0 rgba(#212529, 0.12);
+  z-index: 9999;
+=======
 .theme__ribbon {
   width: 155px;
   height: 160px;
@@ -9,6 +21,7 @@
   perspective: 800px;
   backface-visibility: hidden;
   outline: 1px solid transparent;
+>>>>>>> New theming ribbon w Social Medial links and flipping action
 
   @media (max-width: 890px) {
     right: 1%;
@@ -17,6 +30,35 @@
   @media (max-width: 768px) {
     display: none;
   }
+<<<<<<< HEAD
+}
+
+.theme-logo {
+  width: 50%;
+  margin: 5px 25%;
+}
+
+.social-media {
+  display: flex;
+  font-size: 20px;
+  padding: 8px;
+  color: lighten($primary, 25%);
+  justify-content: space-between;
+}
+
+.panel {
+    width: 300px;
+    height: 300px;
+    margin: 50px auto;
+    perspective: 800px;
+   backface-visibility: hidden;
+  outline: 1px solid transparent;
+}
+
+h1{
+  text-align: center;
+}
+=======
 
   &--logo {
     width: 50%;
@@ -51,6 +93,7 @@
 
 
 //Ribbon FLip Syles
+>>>>>>> New theming ribbon w Social Medial links and flipping action
 
 .card {
     width: 100%;
@@ -61,15 +104,22 @@
     top: 0px;
     left: 0px;
     outline: 1px solid transparent;
+<<<<<<< HEAD
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+=======
 
+>>>>>>> New theming ribbon w Social Medial links and flipping action
 }
 
 .front {
     z-index: 2;
     background-color:  $primary;
     outline: 1px solid transparent;
+<<<<<<< HEAD
+=======
     box-shadow: 0 2px 2px 0 rgba(#212529, 0.16),
                 0 0px 2px 0 rgba(#212529, 0.12);
+>>>>>>> New theming ribbon w Social Medial links and flipping action
 }
 
 .back {
@@ -77,6 +127,37 @@
     transform: rotateY(-180deg);
     background-color:  $primary;
     outline: 1px solid transparent;
+<<<<<<< HEAD
+}
+
+.rotatecard, .rotatecardback{
+  width: 60px;
+  height: 60px;
+  z-index: 3;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  border: none;
+  outline: 1px solid transparent;
+}
+
+
+.flipped{
+    z-index: 1;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    outline: 1px solid transparent;
+}
+
+.backflip {
+    z-index: 2;
+    transform: rotateY(0deg);
+    transition: all .5s;
+  outline: 1px solid transparent;
+}
+=======
     box-shadow: 0 2px 2px 0 rgba(#212529, 0.16),
                 0 0px 2px 0 rgba(#212529, 0.12);
 
@@ -137,3 +218,4 @@ path {
 
 }
 }
+>>>>>>> New theming ribbon w Social Medial links and flipping action

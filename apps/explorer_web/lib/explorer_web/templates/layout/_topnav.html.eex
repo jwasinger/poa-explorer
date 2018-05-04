@@ -1,0 +1,43 @@
+<header class="header">
+    <div class="header__row header__row--search">
+      <div class="header__cell header__cell--search">
+        <%= form_for @conn, chain_path(@conn, :search, Gettext.get_locale), [class: "header__cell--search-form", method: :get, enforce_utf8: false], fn f -> %>
+          <i class="header__cell--search-glass fa fa-search"></i>
+          <%= search_input f, :q, class: 'header__cell--search-input', placeholder: gettext "Search by address, transaction hash, or block number" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="header__row header__row--topnav">
+      <div class="header__cell header__cell--links" align="right">
+        <%= link to: block_path(@conn, :index, Gettext.get_locale), class: "header__link" do %>
+          <div tabindex="0" class="icon-locate">
+              <img class="" src="<%= static_path(@conn, "/images/block.svg") %>" />
+              <%= gettext("Blocks") %>
+          </div>
+        <% end %>
+      </div>
+      <div class="header__cell header__cell--links" align="right">
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
+          <img class="" src="<%= static_path(@conn, "/images/transaction.svg") %>" />
+          <%= gettext("Transactions") %>
+          <i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="collapse list-unstyled" id="pageSubmenu">
+          <li><%= link(gettext("Validated"), to: transaction_path(@conn, :index, Gettext.get_locale)) %></li>
+          <li><%= link(gettext("Pending"), to: pending_transaction_path(@conn, :index, Gettext.get_locale)) %></li>
+        </ul>
+      </div>
+      <div class="header__cell header__cell--links" align="right">
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
+          <img class="" src="<%= static_path(@conn, "/images/block.svg") %>" />
+          <%= gettext("Tokens") %>
+        </a>
+      </div>
+      <div class="header__cell header__cell--links" align="right">
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
+          <img class="" src="<%= static_path(@conn, "/images/block.svg") %>" />
+          <%= gettext("Smart Contracts") %>
+        </a>
+      </div>
+    </div>
+</header>

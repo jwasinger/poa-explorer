@@ -1,7 +1,7 @@
 <div class="theme__ribbon">
     <div class="front card">
       <%= link to: chain_path(@conn, :show), "data-test": "header_logo" do %>
-        <img class="theme__ribbon--logo" src="<%= static_path(@conn, "/images/logo.svg") %>" />
+        <img class="theme__ribbon--logo" src="<%= static_path(@conn, "/images/poa_logo.svg") %>" />
       <% end %>
       <div class="theme__ribbon--social" align="right">
         <a href="https://www.facebook.com/PoaNetwork/" target="_blank">
@@ -36,7 +36,7 @@
     </div>
     <div class="back card">
       <%= link to: chain_path(@conn, :show), "data-test": "header_logo" do %>
-        <img class="theme__ribbon--logo" src="<%= static_path(@conn, "/images/logo.svg") %>" />
+        <img class="theme__ribbon--logo" src="<%= static_path(@conn, "/images/poa_logo.svg") %>" />
       <% end %>
       <div class="flex">
       <div class="dropdown">

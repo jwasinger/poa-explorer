@@ -21,4 +21,4 @@ import 'bootstrap'
 // import socket from "./socket"
 import './lib/sidebar'
 import './lib/market_history_chart'
-import './lib/card-flip'
+import './lib/card_flip'

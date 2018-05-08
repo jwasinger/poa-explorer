@@ -118,7 +118,7 @@ defmodule Explorer.Chain.Statistics do
       from(
         block in Block,
         order_by: [desc: block.number],
-        preload: :transactions,
+        preload: [:transactions],
         limit: 5
       )
 
@@ -127,7 +127,7 @@ defmodule Explorer.Chain.Statistics do
         transaction in Transaction,
         join: block in assoc(transaction, :block),
         order_by: [desc: block.number],
-        preload: [block: block],
+        preload: [:from_address, :to_address, block: block],
         limit: 5
       )
 

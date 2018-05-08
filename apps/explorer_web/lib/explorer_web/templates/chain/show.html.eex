@@ -1,15 +1,13 @@
 <section>
   <section class="container__section container__section--partitioned">
     <div class="chain container__subsection">
-      <div class="chain__container">
-        <img class="chain__image" src="<%= static_path(@conn, "/images/blocks.svg") %>" />
-        <div class="chain__title"><%= gettext("Skipped") %></div>
-        <div class="chain__title chain__title--data"><%= @chain.skipped_blocks |> Cldr.Number.to_string! %></div>
-      </div>
+      Graph Goes Here
+    </div>
+    <div class="chain container__subsection">
       <div class="chain__container">
         <img class="chain__image" src="<%= static_path(@conn, "/images/last_block.svg") %>" />
-        <div class="chain__title"><%= gettext("Lag") %></div>
-        <div class="chain__title chain__title--data"><%= @chain.lag |> Timex.format_duration(:humanized) %></div>
+        <div class="chain__title"><%= gettext("Last Block") %></div>
+        <div class="chain__title chain__title--data"><%= @chain.timestamp |> Timex.from_now() %></div>
       </div>
       <div class="chain__container chain__container--secondary">
         <img class="chain__image" src="<%= static_path(@conn, "/images/average_time.svg") %>" />
@@ -17,137 +15,20 @@
         <div class="chain__title chain__title--data"><%= @chain.block_velocity |> Cldr.Number.to_string! %></div>
       </div>
       <div class="chain__container">
-        <img class="chain__image" src="<%= static_path(@conn, "/images/transactions.svg") %>" />
-        <div class="chain__title"><%= gettext("TPM") %></div>
-        <div class="chain__title chain__title--data"><%= @chain.transaction_velocity |> Cldr.Number.to_string! %></div>
-      </div>
-    </div>
-    <div class="chain container__subsection">
-      <div class="chain__container">
-        <img class="chain__image" src="<%= static_path(@conn, "/images/blocks.svg") %>" />
-        <div class="chain__title"><%= gettext("Block") %></div>
-        <div class="chain__title chain__title--data">#<%= @chain.number %></div>
-      </div>
-      <div class="chain__container">
-        <img class="chain__image" src="<%= static_path(@conn, "/images/last_block.svg") %>" />
-        <div class="chain__title"><%= gettext("Last Block") %></div>
-        <div class="chain__title chain__title--data"><%= @chain.timestamp |> Timex.from_now() %></div>
-      </div>
-      <div class="chain__container chain__container--secondary">
-        <div class="change-color">
-        <svg xmlns="http://www.w3.org/2000/svg" width="68" height="68">
-            <path fill="#fff" fill-rule="evenodd" d="M34 68C15.222 68 0 52.778 0 34S15.222 0 34 0s34 15.222 34 34-15.222 34-34 34zm0-66C16.327 2 2 16.327 2 34c0 17.673 14.327 32 32 32 17.673 0 32-14.327 32-32C66 16.327 51.673 2 34 2z"/>
-            <path fill="#fff" fill-rule="evenodd" d="M34 60C19.641 60 8 48.359 8 34a1 1 0 0 1 2 0c0 13.255 10.745 24 24 24s24-10.745 24-24a1 1 0 0 1 2 0c0 14.359-11.641 26-26 26zm22.151-37.634l-3.464 2a1 1 0 0 1-1-1.732l3.464-2a1 1 0 0 1 1 1.732zm-10.785-6.053a1 1 0 1 1-1.732-1l2-3.464a1 1 0 0 1 1.732 1l-2 3.464zM34 49a8 8 0 0 1-8-8c0-4.079 3.055-7.438 7-7.931V19a1 1 0 0 1 2 0v14.069c3.945.493 7 3.852 7 7.931a8 8 0 0 1-8 8zm0-14a6 6 0 1 0 0 12 6 6 0 0 0 0-12zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-6a2 2 0 1 0-.001 3.999A2 2 0 0 0 34 39zm0-25a1 1 0 0 1-1-1V9a1 1 0 0 1 2 0v4a1 1 0 0 1-1 1zm-10 2.68a1 1 0 0 1-1.366-.367l-2-3.464a1 1 0 0 1 1.732-1l2 3.464c.276.479.112 1.09-.366 1.367zm-8.687 7.686l-3.464-2a1 1 0 0 1 1-1.732l3.464 2a1 1 0 1 1-1 1.732z"/>
-        </svg>
-      </div>
-        <div class="chain__title"><%= gettext("Average Block Time") %></div>
-        <div class="chain__title chain__title--data">
-          <%= @chain.average_time |> Timex.format_duration(:humanized) %>
-        </div>
-      </div>
-      <div class="chain__container">
-        <img class="chain__image" src="<%= static_path(@conn, "/images/transactions.svg") %>" />
+        <img class="chain__image" src="<%= static_path(@conn, "/images/transaction.svg") %>" />
         <div class="chain__title"><%= gettext("Transactions") %></div>
         <div class="chain__title chain__title--data">
           <%= gettext("%{count} per day", count: Cldr.Number.to_string!(@chain.transaction_count)) %>
         </div>
       </div>
+      <div class="chain__container">
+        <img class="chain__image" src="<%= static_path(@conn, "/images/average_time.svg") %>" />
+        <div class="chain__title"><%= gettext("TPM") %></div>
+        <div class="chain__title chain__title--data"><%= @chain.transaction_velocity |> Cldr.Number.to_string! %></div>
+      </div>
     </div>
   </section>
 </section>
-
-<!-- <section>
-  <section class="container__section container__section--partitioned">
-    <div class="blocks container__subsection">
-      <div class="blocks__container blocks__container--title">
-        <h2 class="blocks__title"><%= gettext "Blocks" %></h2>
-        <%= link to: block_path(@conn, :index, Gettext.get_locale), class: "header__link" do %>
-          <div class="button button--secondary button--xsmall u-float-right">View All</div>
-        <% end %>
-      </div>
-      <div>
-
-      </div>
-      <div class="blocks__container">
-        <table class="blocks__table">
-          <thead class="blocks__header">
-            <tr>
-              <th class="blocks__column-header"><%= gettext "Height" %></th>
-              <th class="blocks__column-header"><%= gettext "Age" %></th>
-              <th class="blocks__column-header"><%= gettext "Transactions" %></th>
-              <th class="blocks__column-header"><%= gettext "Gas Used" %></th>
-            </tr>
-          </thead>
-          <tbody>
-            <%= for block <- @chain.blocks do %>
-              <tr class="blocks__row">
-                <td class="blocks__column blocks__column--height">
-                  <%= link(
-                        block.number,
-                        class: "blocks__link",
-                        to: block_path(@conn, :show, @conn.assigns.locale, block.number)
-                      ) %>
-                </td>
-                <td class="blocks__column blocks__column--age"><%= block.timestamp |> Timex.from_now %></td>
-                <td class="blocks__column blocks__column--transactions-count">
-                  <%= block.transactions |> Enum.count %>
-                </td>
-                <td class="blocks__column blocks__column--gas-used"><%= block.gas_used |> Cldr.Number.to_string! %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="transactions container__subsection">
-      <div class="transactions__container transactions__container__flex transactions__container--title">
-        <h2 class="transactions__title"><%= gettext "Transactions" %></h2>
-        <%= link to: transaction_path(@conn, :index, Gettext.get_locale), class: "header__link" do %>
-          <div class="button button--secondary button--xsmall u-float-right">View All</div>
-        <% end %>
-      </div>
-      <div class="transactions__container">
-        <table class="transactions__table">
-          <thead class="transactions__header">
-            <tr>
-              <th class="transactions__column-header"><%= gettext "Hash" %></th>
-              <th class="transactions__column-header"><%= gettext "Block" %></th>
-              <th class="transactions__column-header transactions__column-header--optional"><%= gettext "Age" %></th>
-              <th class="transactions__column-header"><%= gettext "Value" %></th>
-            </tr>
-          </thead>
-          <tbody>
-            <%= for transaction <- @chain.transactions do %>
-              <tr class="transactions__row">
-                <td class="transactions__column transactions__column--hash">
-                  <div class="transactions__hash-container" title="<%= transaction.hash %>">
-                    <%= link(
-                          transaction.hash,
-                          class: "transactions__link transactions__link--truncated transactions__link--hash",
-                          to: transaction_path(@conn, :show, @conn.assigns.locale, transaction.hash)
-                        ) %>
-                  </div>
-                </td>
-                <td class="transactions__column transactions__column--block">
-                  <%= link(
-                        transaction.block.number,
-                        class: "transactions__link",
-                        to: block_path(@conn, :show, @conn.assigns.locale, transaction.block.number)
-                      ) %>
-                </td>
-                <td class="transactions__column transactions__column--age transactions__column--optional">
-                  <%= transaction.block.timestamp |> Timex.from_now() %>
-                </td>
-                <td class="transactions__column transactions__column--value">
-                  <%= value(transaction) %> <%= gettext "Ether" %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    </div> -->
-  </section>
   <section class="container__section container__section--partitioned">
   <%= render ExplorerWeb.ChainView, "_blocks.html", assigns %>
   <%= render ExplorerWeb.ChainView, "_transactions.html", assigns %>

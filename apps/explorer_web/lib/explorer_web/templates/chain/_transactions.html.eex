@@ -8,29 +8,43 @@
     <div class="blocks__container">
     <table class="blocks__table">
       <thead class="blocks__header">
-        <th>TX Hash</th>
-        <th class="table--small-colm">From</th>
-        <th>To</th>
-        <th>Value (POA)</th>
-        <th>Age</th>
+        <th><%= gettext "TX Hash" %></th>
+        <th class="table--small-colm"><%= gettext "From" %></th>
+        <th><%= gettext "To" %></th>
+        <th><%= gettext "Value" %>(<%= gettext "Ether" %>)</th>
+        <th><%= gettext "Age" %></th>
       </thead>
-      <tr>
-        <td>
-          <a href="#">
-          <strong>3da279...</strong>
-        </a>
-        </td>
-        <td class="table--small-colm">
+      <tbody>
+        <%= for transaction <- @chain.transactions do %>
+        <tr>
+          <td class="">
+              <%= link(
+                    transaction.hash |> String.slice(2..7),
+                    class: "",
+                    to: transaction_path(@conn, :show, @conn.assigns.locale, transaction.hash)
+                  ) %>
+          </td>
+          <td class="">
             <i class="fa fa-address-card table--icon"></i>
-            c1ce32...
-        </td>
-        <td class="table--small-colm">
-            <i class="fa fa-file table--icon"></i>
-            c1ce32...
-        </td>
-        <td>40.003</td>
-        <td>1d</td>
-      </tr>
+              <%= link(
+                    transaction.from_address.hash |> String.slice(2..7),
+                    class: "",
+                    to: address_path(@conn, :show, @conn.assigns.locale, transaction.from_address.hash)
+                  ) %>
+          </td>
+          <td class="table--small-colm">
+              <i class="fa fa-file table--icon"></i>
+                <%= link(
+                      transaction.to_address.hash |> String.slice(2..7),
+                      class: "",
+                      to: address_path(@conn, :show, @conn.assigns.locale, transaction.to_address.hash)
+                    ) %>
+          </td>
+          <td>  <%= value(transaction) %> </td>
+          <td><%= transaction.block.timestamp |> Timex.from_now() %></td>
+        </tr>
+        <% end %>
+      </tbody>
     </table>
   </div>
 </div>

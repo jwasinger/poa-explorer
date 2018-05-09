@@ -6,22 +6,22 @@
       <div class="theme__ribbon--social" align="right">
         <a href="https://www.facebook.com/PoaNetwork/" target="_blank">
           <div class="theme__ribbon--social-icons">
-            <i class="fa fa-facebook-f"></i>
+            <i class="fab fa-facebook-f"></i>
           </div>
         </a>
         <a href="https://www.instagram.com/PoaNetwork/" target="_blank">
           <div class="theme__ribbon--social-icons">
-            <i class="fa fa-instagram"></i>
+            <i class="fab fa-instagram"></i>
           </div>
         </a>
         <a href="https://www.twitter.com/PoaNetwork/" target="_blank">
           <div class="theme__ribbon--social-icons">
-            <i class="fa fa-twitter"></i>
+            <i class="fab fa-twitter"></i>
           </div>
         </a>
         <a href="https://www.twitter.com/PoaNetwork/" target="_blank">
           <div class="theme__ribbon--social-icons">
-            <i class="fa fa-telegram"></i>
+            <i class="fab fa-telegram-plane"></i>
           </div>
         </a>
         <div class="theme__ribbon--social-icons u-padding-none">
@@ -58,5 +58,5 @@
         </button>
       </div>
     </div>
-    </div>
+  </div>
 </div>

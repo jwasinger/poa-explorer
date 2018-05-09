@@ -9,35 +9,38 @@
     </div>
     <div class="header__row header__row--topnav">
       <div class="header__cell header__cell--links" align="right">
-        <%= link to: block_path(@conn, :index, Gettext.get_locale), class: "header__link" do %>
+        <%= link to: block_path(@conn, :index, Gettext.get_locale) do %>
           <div tabindex="0" class="icon-locate">
               <img class="" src="<%= static_path(@conn, "/images/block.svg") %>" />
               <%= gettext("Blocks") %>
           </div>
         <% end %>
       </div>
-      <div class="header__cell header__cell--links" align="right">
-        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
+      <div class="header__cell header__cell--links dropdown nav-item">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <img class="" src="<%= static_path(@conn, "/images/transaction.svg") %>" />
           <%= gettext("Transactions") %>
-          <i class="fa fa-caret-down"></i>
         </a>
-        <ul class="collapse list-unstyled" id="pageSubmenu">
-          <li><%= link(gettext("Validated"), to: transaction_path(@conn, :index, Gettext.get_locale)) %></li>
-          <li><%= link(gettext("Pending"), to: pending_transaction_path(@conn, :index, Gettext.get_locale)) %></li>
-        </ul>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link(gettext("Validated"), to: transaction_path(@conn, :index, Gettext.get_locale), class: "dropdown-item")  %>
+          <%= link(gettext("Pending"), to: pending_transaction_path(@conn, :index, Gettext.get_locale), class: "dropdown-item") %>
+        </div>
       </div>
       <div class="header__cell header__cell--links" align="right">
-        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
-          <img class="" src="<%= static_path(@conn, "/images/block.svg") %>" />
-          <%= gettext("Tokens") %>
-        </a>
+        <%= link to: block_path(@conn, :index, Gettext.get_locale) do %>
+          <div tabindex="0" class="icon-locate">
+              <img class="" src="<%= static_path(@conn, "/images/block.svg") %>" />
+              <%= gettext("Tokens") %>
+          </div>
+        <% end %>
       </div>
       <div class="header__cell header__cell--links" align="right">
-        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
-          <img class="" src="<%= static_path(@conn, "/images/block.svg") %>" />
-          <%= gettext("Smart Contracts") %>
-        </a>
+        <%= link to: block_path(@conn, :index, Gettext.get_locale) do %>
+          <div tabindex="0" class="icon-locate">
+              <img class="" src="<%= static_path(@conn, "/images/block.svg") %>" />
+              <%= gettext("Smart Contracts") %>
+          </div>
+        <% end %>
       </div>
     </div>
 </header>

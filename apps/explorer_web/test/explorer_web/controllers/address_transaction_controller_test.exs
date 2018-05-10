@@ -3,6 +3,8 @@ defmodule ExplorerWeb.AddressTransactionControllerTest do
 
   import ExplorerWeb.Router.Helpers, only: [address_transaction_path: 4]
 
+  alias Explorer.ExchangeRates.Token
+
   describe "GET index/2" do
     test "with invalid address hash", %{conn: conn} do
       conn = get(conn, address_transaction_path(conn, :index, :en, "invalid_address"))
@@ -24,16 +26,12 @@ defmodule ExplorerWeb.AddressTransactionControllerTest do
 
       conn = get(conn, address_transaction_path(ExplorerWeb.Endpoint, :index, :en, address))
 
-      assert html = html_response(conn, 200)
-      assert html |> Floki.find("tbody tr") |> length == 1
+      transaction_hashes =
+        conn.assigns.page
+        |> Enum.map(fn transaction -> transaction.hash end)
 
-      transaction_hash_divs = Floki.find(html, "td.transactions__column--hash div.transactions__hash a")
-
-      assert length(transaction_hash_divs) == 1
-
-      assert List.first(transaction_hash_divs) |> Floki.attribute("href") == [
-               "/en/transactions/#{Phoenix.Param.to_param(transaction)}"
-             ]
+      assert conn.status == 200
+      assert Enum.member?(transaction_hashes, transaction.hash)
     end
 
     test "does not return transactions from this address", %{conn: conn} do
@@ -44,8 +42,8 @@ defmodule ExplorerWeb.AddressTransactionControllerTest do
 
       conn = get(conn, address_transaction_path(ExplorerWeb.Endpoint, :index, :en, address))
 
-      assert html = html_response(conn, 200)
-      assert html |> Floki.find("tbody tr") |> length == 0
+      assert conn.status == 200
+      assert Enum.empty?(conn.assigns.page)
     end
 
     test "does not return related transactions without a receipt", %{conn: conn} do
@@ -62,8 +60,8 @@ defmodule ExplorerWeb.AddressTransactionControllerTest do
 
       conn = get(conn, address_transaction_path(ExplorerWeb.Endpoint, :index, :en, address))
 
-      assert html = html_response(conn, 200)
-      assert html |> Floki.find("tbody tr") |> length == 0
+      assert conn.status == 200
+      assert Enum.empty?(conn.assigns.page)
     end
 
     test "does not return related transactions without a from address", %{conn: conn} do
@@ -74,8 +72,8 @@ defmodule ExplorerWeb.AddressTransactionControllerTest do
 
       conn = get(conn, address_transaction_path(ExplorerWeb.Endpoint, :index, :en, address), filter: "from")
 
-      assert html = html_response(conn, 200)
-      assert html |> Floki.find("tbody tr") |> length == 0
+      assert conn.status == 200
+      assert Enum.empty?(conn.assigns.page)
     end
 
     test "does not return related transactions without a to address", %{conn: conn} do
@@ -86,8 +84,16 @@ defmodule ExplorerWeb.AddressTransactionControllerTest do
 
       conn = get(conn, address_transaction_path(ExplorerWeb.Endpoint, :index, :en, address), filter: "to")
 
-      assert html = html_response(conn, 200)
-      assert html |> Floki.find("tbody tr") |> length == 0
+      assert conn.status == 200
+      assert Enum.empty?(conn.assigns.page)
+    end
+
+    test "includes USD exchange rate value for address in assigns", %{conn: conn} do
+      address = insert(:address)
+
+      conn = get(conn, address_transaction_path(ExplorerWeb.Endpoint, :index, :en, address.hash))
+
+      assert %Token{} = conn.assigns.exchange_rate
     end
   end
 end

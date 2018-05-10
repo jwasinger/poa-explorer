@@ -40,7 +40,7 @@
                       to: address_path(@conn, :show, @conn.assigns.locale, transaction.to_address.hash)
                     ) %>
           </td>
-          <td>  <%= value(transaction) %> </td>
+          <td>  <%= ExplorerWeb.TransactionView.value(transaction) %> </td>
           <td><%= transaction.block.timestamp |> Timex.from_now() %></td>
         </tr>
         <% end %>

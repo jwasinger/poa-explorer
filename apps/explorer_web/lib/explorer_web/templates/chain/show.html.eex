@@ -9,7 +9,7 @@
       <div>
         <img class="" src="<%= static_path(@conn, "/images/last_block.svg") %>" />
         <div class="chain__title"><%= gettext("Last Block") %></div>
-        <div class="chain__title chain__title--data"><%= @chain.timestamp |> Timex.from_now() %></div>
+        <div class="chain__title"><%= @chain.timestamp |> Timex.from_now() %></div>
       </div>
       <div>
         <img class="" src="<%= static_path(@conn, "/images/average_time.svg") %>" />
@@ -38,7 +38,7 @@
       <div class="chain__container">
         <img class="chain__image" src="<%= static_path(@conn, "/images/average_time.svg") %>" />
         <div class="chain__title"><%= gettext("TPM") %></div>
-        <div class="chain__title chain__title--data"><%= @chain.transaction_velocity |> Cldr.Number.to_string! %></div>
+        <div class="chain__title"><%= @chain.transaction_velocity |> Cldr.Number.to_string! %></div>
       </div>
     </div>
   </section>

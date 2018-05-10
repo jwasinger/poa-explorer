@@ -9,8 +9,6 @@
   &__container {
     flex: 1;
     text-align: center;
-    &--secondary { display: none; }
-    &--tertiary { display: none; }
   }
 
   &__image {
@@ -20,55 +18,7 @@
   }
 
   &__title {
-    @include explorer-typography("caption");
-    &--data { color: explorer-color("blue", "500"); }
-  }
-}
-
-@media (min-width: $explorer-breakpoint-sm) {
-  .chain {
-    &__image {
-      height: explorer-size(1);
-    }
-
-    &__container {
-      &--secondary { display: block; }
-    }
-  }
-}
-
-@media (min-width: $explorer-breakpoint-md) {
-  .chain {
-    &__image {
-      height: explorer-size(1);
-    }
-
-    &__container {
-      &--secondary { display: none; }
-    }
-  }
-}
-
-@media (min-width: $explorer-breakpoint-lg) {
-  .chain {
-    &__image {
-      height: explorer-size(1);
-    }
-
-    &__container {
-      &--secondary { display: block; }
-    }
-  }
-}
-
-@media (min-width: $explorer-breakpoint-xl) {
-  .chain {
-    &__image {
-      height: explorer-size(1);
-    }
-
-    &__container {
-      &--tertiary { display: block; }
-    }
+    font-size: 13px;
+    line-height: 24px;
   }
 }

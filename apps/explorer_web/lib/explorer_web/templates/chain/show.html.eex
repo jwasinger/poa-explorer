@@ -7,24 +7,24 @@
       <div class="chain__container">
         <img class="chain__image" src="<%= static_path(@conn, "/images/last_block.svg") %>" />
         <div class="chain__title"><%= gettext("Last Block") %></div>
-        <div class="chain__title chain__title--data"><%= @chain.timestamp |> Timex.from_now() %></div>
+        <div class="chain__title"><%= @chain.timestamp |> Timex.from_now() %></div>
       </div>
-      <div class="chain__container chain__container--secondary">
+      <div class="chain__container">
         <img class="chain__image" src="<%= static_path(@conn, "/images/average_time.svg") %>" />
         <div class="chain__title"><%= gettext("BPM") %></div>
-        <div class="chain__title chain__title--data"><%= @chain.block_velocity |> Cldr.Number.to_string! %></div>
+        <div class="chain__title"><%= @chain.block_velocity |> Cldr.Number.to_string! %></div>
       </div>
       <div class="chain__container">
         <img class="chain__image" src="<%= static_path(@conn, "/images/transaction.svg") %>" />
-        <div class="chain__title"><%= gettext("Transactions") %></div>
-        <div class="chain__title chain__title--data">
+        <div class="chain__title"><strong><%= gettext("Transactions") %></strong></div>
+        <div class="chain__title">
           <%= gettext("%{count} per day", count: Cldr.Number.to_string!(@chain.transaction_count)) %>
         </div>
       </div>
       <div class="chain__container">
         <img class="chain__image" src="<%= static_path(@conn, "/images/average_time.svg") %>" />
         <div class="chain__title"><%= gettext("TPM") %></div>
-        <div class="chain__title chain__title--data"><%= @chain.transaction_velocity |> Cldr.Number.to_string! %></div>
+        <div class="chain__title"><%= @chain.transaction_velocity |> Cldr.Number.to_string! %></div>
       </div>
     </div>
   </section>

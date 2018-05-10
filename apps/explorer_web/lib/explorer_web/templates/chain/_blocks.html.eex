@@ -1,0 +1,80 @@
+<div class="blocks container__subsection">
+  <div class="blocks__container blocks__container--title">
+    <h2 class="blocks__title"><%= gettext "Blocks" %></h2>
+    <%= link to: block_path(@conn, :index, Gettext.get_locale), class: "header__link" do %>
+      <div class="button button--secondary button--xsmall u-float-right">View All</div>
+    <% end %>
+  </div>
+    <div class="blocks__container">
+    <table class="blocks__table">
+      <thead class="blocks__header">
+        <th>Height</th>
+        <th>Age (days)</th>
+        <th>TXNs</th>
+        <th>Gas</th>
+        <th>Validated By</th>
+      </thead>
+      <tr>
+        <td>
+          <img class="table--icon-box" src="<%= static_path(@conn, "/images/purple-block.svg") %>" />
+          Coming soon...
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <img class="table--icon-box" src="<%= static_path(@conn, "/images/purple-block.svg") %>" />
+          1790100
+        </td>
+        <td>25</td>
+        <td>0</td>
+        <td>0</td>
+        <td class="table--small-colm">
+          <i class="fa fa-address-card table--icon"></i>
+          c1ce32...
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img class="table--icon-box" src="<%= static_path(@conn, "/images/purple-block.svg") %>" />
+          1790100
+        </td>
+        <td>25</td>
+        <td>0</td>
+        <td>0</td>
+        <td class="table--small-colm">
+          <i class="fa fa-address-card table--icon"></i>
+          c1ce32...
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img class="table--icon-box" src="<%= static_path(@conn, "/images/purple-block.svg") %>" />
+          1790100
+        </td>
+        <td>25</td>
+        <td>0</td>
+        <td>0</td>
+        <td class="table--small-colm">
+          <i class="fa fa-address-card table--icon"></i>
+          c1ce32...
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img class="table--icon-box" src="<%= static_path(@conn, "/images/purple-block.svg") %>" />
+          1790100
+        </td>
+        <td>25</td>
+        <td>0</td>
+        <td>0</td>
+        <td class="table--small-colm">
+          <i class="fa fa-address-card table--icon"></i>
+          c1ce32...
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

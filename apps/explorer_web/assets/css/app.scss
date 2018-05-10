@@ -24,11 +24,16 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 @import "node_modules/bootstrap/scss/dropdown";
 @import "node_modules/bootstrap/scss/transitions";
 
-// Custom SCSS
-@import "content";
+//Custom theme
+@import "theme/theme-ribbon";
 @import "theme/fonts";
+
+// Custom SCSS
+@import "explorer/table";
+@import "content";
 @import "utilities";
 @import "typography";
+@import "components/header";
 @import "components/sidebar";
 @import "explorer/button";
 @import "explorer/filter";

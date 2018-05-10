@@ -11,7 +11,7 @@
   &__headline-title,
   &__title {
     @include explorer-typography("title");
-    color: explorer-color("slate", "900");
+    color: #5b33a1;
     margin: 0;
     width: 90%;
   }

@@ -1,0 +1,14 @@
+.contract {
+  &__container {
+    padding: explorer-size(-1) explorer-size(0);
+  }
+
+  &__code {
+    max-width: explorer-size(7);
+  }
+
+  &__code p {
+    overflow-wrap: break-word;
+    word-break: break-all;
+  }
+}

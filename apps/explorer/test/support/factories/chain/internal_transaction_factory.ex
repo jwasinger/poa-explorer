@@ -3,7 +3,7 @@ defmodule Explorer.Chain.InternalTransactionFactory do
     quote do
       def internal_transaction_factory do
         %Explorer.Chain.InternalTransaction{
-          index: Enum.random(0..9),
+          index: sequence(:index, &(&1)),
           call_type: Enum.random(["call", "creates", "calldelegate"]),
           trace_address: [Enum.random(0..4), Enum.random(0..4)],
           from_address_id: insert(:address).id,

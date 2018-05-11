@@ -23,22 +23,30 @@
           <li><%= link(gettext("Pending"), to: pending_transaction_path(@conn, :index, Gettext.get_locale)) %></li>
         </ul>
       </div>
-      <div class="header__cell" align="right">
-        <a href="https://www.facebook.com/PoaNetwork/" target="_blank" class="header__link">
-          <div class="social-media">
-            <i class="fa fa-facebook-f"></i>
+      <div class="" align="right">
+        <a href="https://www.facebook.com/PoaNetwork/" target="_blank">
+          <div class="theme__ribbon--social-icons">
+            <i class="fab fa-facebook-f"></i>
           </div>
         </a>
-        <a href="https://www.instagram.com/PoaNetwork/" target="_blank" class="header__link">
-          <div class="social-media">
-            <i class="fa fa-instagram"></i>
+        <a href="https://www.instagram.com/PoaNetwork/" target="_blank">
+          <div class="theme__ribbon--social-icons">
+            <i class="fab fa-instagram"></i>
           </div>
         </a>
-        <a href="https://www.twitter.com/PoaNetwork/" target="_blank" class="header__link">
-          <div class="social-media">
-            <i class="fa fa-twitter"></i>
+        <a href="https://www.twitter.com/PoaNetwork/" target="_blank">
+          <div class="theme__ribbon--social-icons">
+            <i class="fab fa-twitter"></i>
           </div>
         </a>
+        <a href="https://www.twitter.com/PoaNetwork/" target="_blank">
+          <div class="theme__ribbon--social-icons">
+            <i class="fab fa-telegram-plane"></i>
+          </div>
+        </a>
+        <div class="theme__ribbon--social-icons u-padding-none">
+          <i class="theme__ribbon--social-divider"></i>
+        </div>
       </div>
     </div>
   </nav>

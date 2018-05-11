@@ -21,9 +21,9 @@
           <img src="<%= static_path(@conn, "/images/transaction.svg") %>" />
           <%= gettext("Transactions") %>
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link(gettext("Validated"), to: transaction_path(@conn, :index, Gettext.get_locale), class: "dropdown-item")  %>
-          <%= link(gettext("Pending"), to: pending_transaction_path(@conn, :index, Gettext.get_locale), class: "dropdown-item") %>
+        <div class="dropdown-menu topnav-dropdown" aria-labelledby="navbarDropdown">
+          <%= link(gettext("Validated"), to: transaction_path(@conn, :index, Gettext.get_locale), class: "dropdown-item topnav-dropdown-items")  %>
+          <%= link(gettext("Pending"), to: pending_transaction_path(@conn, :index, Gettext.get_locale), class: "dropdown-item topnav-dropdown-items") %>
         </div>
       </div>
       <div class="header__cell header__cell--links" align="right">

@@ -93,3 +93,14 @@
     }
   }
 }
+
+.topnav-dropdown {
+  background: $gray-100;
+  width: 85px;
+  border: none;
+  transform: translate3d(48px, 35px, 0px) !important;
+}
+
+.topnav-dropdown-items {
+  padding-left: 12px;
+}

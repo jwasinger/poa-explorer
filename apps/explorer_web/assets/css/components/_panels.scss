@@ -11,7 +11,7 @@
   &__headline-title,
   &__title {
     @include explorer-typography("title");
-    color: #5b33a1;
+    color: $gray-900;
     margin: 0;
     width: 90%;
   }
@@ -33,7 +33,7 @@
     &--optional { display: none; }
   }
 
-  &__link { color: explorer-color("blue", "500"); }
+  &__link {color: #343a40; }
 
   &__pagination {
     margin: explorer-size(-1) 0 explorer-size(-2) 0;

@@ -41,7 +41,7 @@
         </div>
         <div class="transaction__item">
           <dt class="transaction__item-key"><%= gettext "Value" %></dt>
-          <dd class="transaction__item-value"><%= value(@transaction) %></dd>
+          <dd class="transaction__item-value"><%= value(@transaction) %> <%= format_usd(@transaction, @exchange_rate) %></dd>
         </div>
         <div class="transaction__item">
           <dt class="transaction__item-key"><%= gettext "From" %></dt>

@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="back card">
-      <%= link to: chain_path(@conn, :show), "data-test": "header_logo" do %>
+      <%= link to: chain_path(@conn, :show) do %>
         <img class="theme__ribbon--logo" src="<%= static_path(@conn, "/images/poa_logo.svg") %>" />
       <% end %>
       <div class="flex">

@@ -1,7 +1,7 @@
 <div id="sidebar--container">
   <nav id="sidebar">
     <div class="sidebar-header">
-      <%= link to: chain_path(@conn, :show), "data-test": "header_logo" do %>
+      <%= link to: chain_path(@conn, :show) do %>
         <img class="" src="<%= static_path(@conn, "/images/logo.svg") %>" />
       <% end %>
     </div>

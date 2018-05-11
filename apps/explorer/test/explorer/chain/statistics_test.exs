@@ -109,7 +109,7 @@ defmodule Explorer.Chain.StatisticsTest do
 
       statistics = Statistics.fetch()
 
-      assert statistics.transactions |> Enum.count() == 5
+      assert statistics.transactions |> Enum.count() == 6
     end
   end
 end

@@ -1,5 +1,5 @@
 <section class="container__section transaction">
-  <%= render "overview.html", assigns %>
+  <%= render ExplorerWeb.TransactionView, "overview.html", assigns %>
 
   <div class="transaction__container">
     <div class="transaction__tabs">

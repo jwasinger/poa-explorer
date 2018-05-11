@@ -128,7 +128,7 @@ defmodule Explorer.Chain.Statistics do
         join: block in assoc(transaction, :block),
         order_by: [desc: block.number],
         preload: [:from_address, :to_address, block: block],
-        limit: 5
+        limit: 6
       )
 
     last_block = Block |> Block.latest() |> limit(1) |> Repo.one()

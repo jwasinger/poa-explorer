@@ -2,22 +2,22 @@
   <section class="container__section container__section--partitioned">
     <div class="container__stats">
       <div>
-        <%= render ExplorerWeb.IconsView, "_block-icon.html", assigns %>
+        <%= render ExplorerWeb.IconsView, "_block_icon.html", assigns %>
         <div><%= gettext("Block") %></div>
         <div> #<%= @chain.number %></div>
       </div>
       <div>
-        <%= render ExplorerWeb.IconsView, "_hourglass-icon.html", assigns %>
+        <%= render ExplorerWeb.IconsView, "_hourglass_icon.html", assigns %>
         <div> <%= gettext("Last Block") %></div>
         <div> <%= @chain.timestamp |> Timex.from_now() %></div>
       </div>
       <div>
-        <%= render ExplorerWeb.IconsView, "_guage-icon.html", assigns %>
+        <%= render ExplorerWeb.IconsView, "_guage_icon.html", assigns %>
         <div><%= gettext("Avg Block Time") %></div>
         <%= @chain.average_time |> Timex.format_duration(:humanized) %>
       </div>
       <div>
-        <%= render ExplorerWeb.IconsView, "_transaction-icon.html", assigns %>
+        <%= render ExplorerWeb.IconsView, "_transaction_icon.html", assigns %>
         <div> <%= gettext("TPM") %></div>
         <div> <%= @chain.transaction_velocity |> Cldr.Number.to_string! %></div>
       </div>

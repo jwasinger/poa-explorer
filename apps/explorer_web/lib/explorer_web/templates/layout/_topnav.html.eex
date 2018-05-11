@@ -29,17 +29,17 @@
       <div class="header__cell header__cell--links" align="right">
         <%= link to: block_path(@conn, :index, Gettext.get_locale) do %>
           <div tabindex="0">
-              <img src="<%= static_path(@conn, "/images/block.svg") %>" />
+              <img src="<%= static_path(@conn, "/images/token.svg") %>" />
               <%= gettext("Tokens") %>
           </div>
         <% end %>
       </div>
       <div class="header__cell header__cell--links" align="right">
         <%= link to: block_path(@conn, :index, Gettext.get_locale) do %>
-          <div tabindex="0">
-              <i class="far fa-file nav-icons"></i>
-              <%= gettext("Smart Contracts") %>
-          </div>
+        <div tabindex="0">
+            <img src="<%= static_path(@conn, "/images/smart_contract.svg") %>" />
+            <%= gettext("Smart Contract") %>
+        </div>
         <% end %>
       </div>
     </div>

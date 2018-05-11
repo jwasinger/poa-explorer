@@ -37,6 +37,20 @@
     margin-bottom: explorer-size(-2);
     text-align: center;
   }
+
+  svg {
+    width: 30px;
+  }
+
+  path {
+    fill: $primary;
+  }
+
+  .stroke {
+    stroke: $primary;
+  }
+
+
 }
 
 .graph__squares {
@@ -62,7 +76,7 @@
 @media (min-width: $explorer-breakpoint-md) {
 
   .container__stats {
-    width: 18%;
+    width: 15%;
     flex-direction: column;
     align-content: space-between;
 

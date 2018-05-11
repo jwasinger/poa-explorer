@@ -2,22 +2,22 @@
   <section class="container__section container__section--partitioned">
     <div class="container__stats">
       <div>
-        <img src="<%= static_path(@conn, "/images/block.svg") %>" />
+        <%= render ExplorerWeb.IconsView, "_block-icon.html", assigns %>
         <div><%= gettext("Block") %></div>
         <div> #<%= @chain.number %></div>
       </div>
       <div>
-        <img src="<%= static_path(@conn, "/images/last_block.svg") %>" />
+        <%= render ExplorerWeb.IconsView, "_hourglass-icon.html", assigns %>
         <div> <%= gettext("Last Block") %></div>
         <div> <%= @chain.timestamp |> Timex.from_now() %></div>
       </div>
       <div>
-        <img src="<%= static_path(@conn, "/images/average_time.svg") %>" />
+        <%= render ExplorerWeb.IconsView, "_guage-icon.html", assigns %>
         <div><%= gettext("Avg Block Time") %></div>
         <%= @chain.average_time |> Timex.format_duration(:humanized) %>
       </div>
       <div>
-        <img class="chain__image" src="<%= static_path(@conn, "/images/average_time.svg") %>" />
+        <%= render ExplorerWeb.IconsView, "_transaction-icon.html", assigns %>
         <div> <%= gettext("TPM") %></div>
         <div> <%= @chain.transaction_velocity |> Cldr.Number.to_string! %></div>
       </div>
@@ -43,8 +43,7 @@
     </div>
   </section>
 </section>
-  <section class="container__section container__section--partitioned">
+<section class="container__section container__section--partitioned">
   <%= render ExplorerWeb.ChainView, "_blocks.html", assigns %>
   <%= render ExplorerWeb.ChainView, "_transactions.html", assigns %>
-</section>
 </section>

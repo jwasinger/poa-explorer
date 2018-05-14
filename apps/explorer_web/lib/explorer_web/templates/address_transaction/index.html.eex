@@ -121,7 +121,7 @@
                 <%= ExplorerWeb.TransactionView.value(transaction) %>
               </td>
               <td class="transactions__column transactions__column--value">
-                <%= ExplorerWeb.TransactionView.fee(transaction) %>
+                <%= ExplorerWeb.TransactionView.formatted_fee(transaction, denomination: :ether) %>
               </td>
             </tr>
           <% end %>

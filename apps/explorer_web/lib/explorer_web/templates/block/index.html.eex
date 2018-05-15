@@ -23,7 +23,7 @@
   </div>
   <div class="panels container__subsection">
     <div class="panels__container">
-      <table class="table table-font">
+      <table class="table table-responsive-sm table-font">
         <thead>
           <tr>
             <th><%= gettext "Height" %></th>

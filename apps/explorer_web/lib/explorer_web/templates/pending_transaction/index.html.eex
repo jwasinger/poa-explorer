@@ -70,16 +70,16 @@
             <% end %>
           </tbody>
         </table>
-        <%= link(
-              gettext("Next Page"),
-              class: "",
-              to: pending_transaction_path(
-                @conn,
-                :index,
-                @conn.assigns.locale,
-                %{"last_seen" => @last_seen_transaction_id}
-              )
-            ) %>
       </div>
     </div>
+    <%= link(
+          gettext("Next Page"),
+          class: "button button--secondary button--sm u-float-right",
+          to: pending_transaction_path(
+            @conn,
+            :index,
+            @conn.assigns.locale,
+            %{"last_seen" => @last_seen_transaction_id}
+          )
+        ) %>
 </section>

@@ -7,19 +7,6 @@
             end_block: List.last(@blocks.entries).number
           ) %>
     </h1>
-    <div class="blocks__pagination">
-      <%= pagination_links(
-            @conn,
-            @blocks,
-            ["en"],
-            distance: 1,
-            first: true,
-            next: Phoenix.HTML.raw("&rsaquo;"),
-            path: &block_path/4,
-            previous: Phoenix.HTML.raw("&lsaquo;"),
-            view_style: :bulma
-          ) %>
-    </div>
   </div>
   <div class="panels container__subsection">
     <div class="panels__container">
@@ -64,5 +51,18 @@
         </tbody>
       </table>
     </div>
+  </div>
+  <div class="blocks__pagination">
+    <%= pagination_links(
+          @conn,
+          @blocks,
+          ["en"],
+          distance: 1,
+          first: true,
+          next: Phoenix.HTML.raw("&rsaquo;"),
+          path: &block_path/4,
+          previous: Phoenix.HTML.raw("&lsaquo;"),
+          view_style: :bulma
+        ) %>
   </div>
 </section>

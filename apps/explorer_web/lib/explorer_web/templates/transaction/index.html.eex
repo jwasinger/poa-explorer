@@ -1,4 +1,4 @@
-<section class="container__section">
+  <section class="container__section">
     <div class="blocks__headline">
       <h1 class="blocks__headline-title">
         <%= gettext("Showing %{count} Transactions", count: @transactions.total_entries) %>
@@ -70,10 +70,11 @@
             <% end %>
           </tbody>
         </table>
-        <%= link(
-              gettext("Next Page"),
-              to: transaction_path(@conn, :index, @conn.assigns.locale, %{"last_seen" => @transactions.last_seen})
-            ) %>
       </div>
     </div>
-</section>
+    <%= link(
+          gettext("Next Page"),
+          class: "button button--secondary button--sm u-float-right",
+          to: transaction_path(@conn, :index, @conn.assigns.locale, %{"last_seen" => @transactions.last_seen})
+        ) %>
+  </section>

@@ -5,6 +5,7 @@
 /db
 /deps
 /doc
+/temp
 /*.ez
 
 # Generated on crash by the VM

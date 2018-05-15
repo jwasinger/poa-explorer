@@ -1,17 +1,10 @@
 .panels {
   @extend %paper;
 
-  &__container {
-    padding: 20px;
+    &__container {
+      padding: 20px;
+    }
   }
-
-  &__headline-title,
-  &__title {
-    color: $dark;
-    margin: 0;
-    width: 90%;
-  }
-}
 
   .pagination {
     text-align: right;

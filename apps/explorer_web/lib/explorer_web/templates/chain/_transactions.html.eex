@@ -1,9 +1,7 @@
 <div class="panels container__subsection">
   <div class="panels__container panels__container--title">
+    <%= link(gettext("View All"), to: transaction_path(@conn, :index, Gettext.get_locale), class: "button button--secondary button--xsmall u-float-right") %>
     <h2 class="panels__title"><%= gettext "Transactions" %></h2>
-    <%= link to: block_path(@conn, :index, Gettext.get_locale), class: "header__link" do %>
-      <div class="button button--secondary button--xsmall u-float-right">View All</div>
-    <% end %>
   </div>
   <table class="table table-font">
     <thead>

@@ -1,50 +1,36 @@
-<div class="blocks container__subsection">
-  <div class="blocks__container blocks__container--title">
-    <h2 class="blocks__title"><%= gettext "Transactions" %></h2>
+<div class="panels container__subsection">
+  <div class="panels__container panels__container--title">
+    <h2 class="panels__title"><%= gettext "Transactions" %></h2>
     <%= link to: block_path(@conn, :index, Gettext.get_locale), class: "header__link" do %>
       <div class="button button--secondary button--xsmall u-float-right">View All</div>
     <% end %>
   </div>
-    <div class="blocks__container">
-    <table class="blocks__table">
-      <thead class="blocks__header">
-        <th><%= gettext "TX Hash" %></th>
-        <th class="table--small-colm"><%= gettext "From" %></th>
-        <th><%= gettext "To" %></th>
-        <th><%= gettext "Value" %>(<%= gettext "Ether" %>)</th>
-        <th><%= gettext "Age" %></th>
-      </thead>
-      <tbody>
-        <%= for transaction <- @chain.transactions do %>
-        <tr>
-          <td class="">
-              <%= link(
-                    transaction.hash |> String.slice(2..7),
-                    class: "",
-                    to: transaction_path(@conn, :show, @conn.assigns.locale, transaction.hash)
-                  ) %>
-          </td>
-          <td class="">
-            <i class="fa fa-address-card table--icon"></i>
-              <%= link(
-                    transaction.from_address.hash |> String.slice(2..7),
-                    class: "",
-                    to: address_path(@conn, :show, @conn.assigns.locale, transaction.from_address.hash)
-                  ) %>
-          </td>
-          <td class="table--small-colm">
-              <i class="fa fa-file table--icon"></i>
-                <%= link(
-                      transaction.to_address.hash |> String.slice(2..7),
-                      class: "",
-                      to: address_path(@conn, :show, @conn.assigns.locale, transaction.to_address.hash)
-                    ) %>
-          </td>
-          <td>  <%= ExplorerWeb.TransactionView.value(transaction) %> </td>
-          <td><%= transaction.block.timestamp |> Timex.from_now() %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+  <table class="table table-font">
+    <thead>
+      <th><%= gettext "TX Hash" %></th>
+      <th><%= gettext "From" %></th>
+      <th><%= gettext "To" %></th>
+      <th><%= gettext "Value" %> (<%= gettext "Ether" %>)</th>
+      <th><%= gettext "Age" %></th>
+    </thead>
+    <tbody>
+      <%= for transaction <- @chain.transactions do %>
+      <tr>
+        <th>
+          <%= link(transaction.hash |> String.slice(2..7),to: transaction_path(@conn, :show, @conn.assigns.locale, transaction.hash)) %>
+        </th>
+        <td class="">
+          <i class="fa fa-address-card"></i>
+          <%= link(transaction.from_address.hash |> String.slice(2..7), to: address_path(@conn, :show, @conn.assigns.locale, transaction.from_address.hash)) %>
+        </td>
+        <td>
+          <i class="fa fa-file"></i>
+          <%= link(transaction.to_address.hash |> String.slice(2..7),to: address_path(@conn, :show, @conn.assigns.locale, transaction.to_address.hash)) %>
+        </td>
+        <td><%= ExplorerWeb.TransactionView.value(transaction, include_label: false) %> </td>
+        <td><%= transaction.block.timestamp |> Timex.from_now() %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

@@ -1,57 +1,46 @@
-<div class="blocks container__subsection">
-  <div class="blocks__container blocks__container--title">
-    <h2 class="blocks__title"><%= gettext "Blocks" %></h2>
+<div class="panels container__subsection">
+  <div class="panels__container panels__container--title">
+    <h2 class="panels__title"><%= gettext "Blocks" %></h2>
     <%= link to: block_path(@conn, :index, Gettext.get_locale), class: "header__link" do %>
       <div class="button button--secondary button--xsmall u-float-right">View All</div>
     <% end %>
   </div>
-    <div class="blocks__container">
-    <table class="blocks__table">
-      <thead class="blocks__header">
-        <th><%= gettext "Height" %></th>
-        <th><%= gettext "Age" %></th>
-        <th><%= gettext "TXNs" %></th>
-        <th><%= gettext "Gas" %></th>
-        <th>Validator</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-
-            <i class="table--icon fas fa-spinner fa-pulse"></i>
-            Coming soon
-          </td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-      <tbody>
-        <%= for block <- @chain.blocks do %>
-        <tr>
-          <td>
-            <img class="table--icon-box" src="<%= static_path(@conn, "/images/purple-block.svg") %>" />
-            <%= link(
-                  block.number,
-                  class: "blocks__link",
-                  to: block_path(@conn, :show, @conn.assigns.locale, block.number)
-                ) %>
-          </td>
-          <td><%= block.timestamp |> Timex.from_now %></td>
-          <td><%= block.transactions |> Enum.count %></td>
-          <td><%= block.gas_used |> Cldr.Number.to_string! %></td>
-          <td class="table--small-colm">
-            <i class="fa fa-address-card table--icon"></i>
-            <%= link(
-                  block.miner |> String.slice(2..7),
-                  class: "blocks__link",
-                  to: block_path(@conn, :show, @conn.assigns.locale, block.number)
-                ) %>
-          </td>
-        </tr>
-        <% end %>
+  <table class="table table-font">
+    <thead>
+      <th><%= gettext "Height" %></th>
+      <th><%= gettext "Age" %></th>
+      <th><%= gettext "TXNs" %></th>
+      <th><%= gettext "Gas" %></th>
+      <th><%= gettext "Validator" %></th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <i class="fas fa-spinner fa-pulse"></i>
+          Coming soon
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
     </tbody>
-
-    </table>
-  </div>
+    <tbody>
+      <%= for block <- @chain.blocks do %>
+      <tr>
+        <td>
+          <img src="<%= static_path(@conn, "/images/block.svg") %>" />
+          <%= link(block.number,to: block_path(@conn, :show, @conn.assigns.locale, block.number)) %>
+        </td>
+        <th><%= block.timestamp |> Timex.from_now %></th>
+        <td><%= block.transactions |> Enum.count %></td>
+        <td><%= block.gas_used |> Cldr.Number.to_string! %></td>
+        <td>
+          <i class="fa fa-address-card"></i>
+          <%= link(block.miner |> String.slice(2..7),to: block_path(@conn, :show, @conn.assigns.locale, block.number) ) %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

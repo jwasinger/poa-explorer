@@ -23,22 +23,23 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 // Bootstrap Components
 @import "node_modules/bootstrap/scss/dropdown";
 @import "node_modules/bootstrap/scss/transitions";
+@import "node_modules/bootstrap/scss/tables";
 
 //Custom theme
 @import "theme/theme_ribbon";
 @import "theme/fonts";
 
 // Custom SCSS
-@import "explorer/table";
 @import "content";
 @import "utilities";
 @import "typography";
 @import "components/panels";
 @import "components/header";
 @import "components/sidebar";
+@import "components/chain";
 @import "explorer/button";
 @import "explorer/filter";
-@import "components/chain";
+@import "explorer/table";
 
 :export {
   primary: $primary;

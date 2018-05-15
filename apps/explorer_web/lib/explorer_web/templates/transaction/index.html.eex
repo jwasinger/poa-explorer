@@ -5,7 +5,7 @@
         <%= gettext("Showing %{count} Transactions", count: @transactions.total_entries) %>
       </h1>
     </div>
-    <div class="transactions">
+    <div class="panels container__subsection">
       <div class="transactions__tabs">
         <h2 class="transactions__tab transactions__tab--active">
           <%= link(
@@ -22,21 +22,21 @@
               ) %>
         </h2>
       </div>
-      <div class="transactions__container">
-        <table class="transactions__table">
-          <thead class="transactions__header">
+      <div class="panels__container">
+        <table class="table table-font">
+          <thead>
             <tr>
               <th class="transactions__column-header transactions__column-header--status">
                 <span class="transactions__column-title transactions__column-title--status">
                   <%= gettext "Status" %>
                 </span>
               </th>
-              <th class="transactions__column-header"><%= gettext "Hash" %></th>
-              <th class="transactions__column-header transactions__column-header--optional"><%= gettext "Block" %></th>
-              <th class="transactions__column-header"><%= gettext "Age" %></th>
-              <th class="transactions__column-header transactions__column-header--optional"><%= gettext "From" %></th>
-              <th class="transactions__column-header transactions__column-header--optional"><%= gettext "To" %></th>
-              <th class="transactions__column-header"><%= gettext "Value" %></th>
+              <th class=""><%= gettext "Hash" %></th>
+              <th class=""><%= gettext "Block" %></th>
+              <th class=""><%= gettext "Age" %></th>
+              <th class=""><%= gettext "From" %></th>
+              <th class=""><%= gettext "To" %></th>
+              <th class=""><%= gettext "Value" %></th>
             </tr>
           </thead>
           <tbody>

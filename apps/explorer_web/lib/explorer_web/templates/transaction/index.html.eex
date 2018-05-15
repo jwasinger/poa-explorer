@@ -1,9 +1,7 @@
   <section class="container__section">
-    <div class="blocks__headline">
-      <h1 class="blocks__headline-title">
-        <%= gettext("Showing %{count} Transactions", count: @transactions.total_entries) %>
-      </h1>
-    </div>
+    <h1>
+      <%= gettext("Showing %{count} Transactions", count: @transactions.total_entries) %>
+    </h1>
     <div>
       <ul class="nav nav-tabs">
         <li class="nav-item">
@@ -27,9 +25,7 @@
         <table class="table table-responsive-sm table-font">
           <thead>
             <tr>
-              <th>
-                <%= gettext "Status" %>
-              </th>
+              <th><%= gettext "Status" %></th>
               <th><%= gettext "Hash" %></th>
               <th><%= gettext "Block" %></th>
               <th><%= gettext "Age" %></th>
@@ -42,7 +38,7 @@
             <%= for transaction <- @transactions.entries do %>
               <tr>
                 <td>
-                  <div class="transactions__dot transactions__dot--<%= status(transaction) %>"></div>
+                  <div class="transaction__dot transaction__dot--<%= status(transaction) %>"></div>
                 </td>
                 <td>
                    <%= link(transaction.hash |> String.slice(2..7),to: transaction_path(@conn, :show, @conn.assigns.locale, transaction.hash)) %>

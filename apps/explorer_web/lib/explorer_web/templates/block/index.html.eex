@@ -1,6 +1,6 @@
 <section class="container__section">
-  <div class="blocks__headline">
-    <h1 class="blocks__headline-title">
+  <div>
+    <h1>
       <%= gettext(
             "Showing #%{start_block} to #%{end_block}",
             start_block: List.first(@blocks.entries).number,

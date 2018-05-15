@@ -16,8 +16,8 @@
           </div>
         <% end %>
       </div>
-      <div class="header__cell header__cell--links dropdown nav-item">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="header__cell header__cell--links dropdown">
+        <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <img src="<%= static_path(@conn, "/images/transaction.svg") %>" />
           <%= gettext("Transactions") %>
         </a>

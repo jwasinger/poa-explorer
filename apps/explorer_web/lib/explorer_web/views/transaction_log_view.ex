@@ -4,5 +4,5 @@ defmodule ExplorerWeb.TransactionLogView do
 
   alias ExplorerWeb.TransactionView
 
-  defdelegate format_usd(txn, token), to: TransactionView
+  defdelegate formatted_usd(txn, token), to: TransactionView
 end

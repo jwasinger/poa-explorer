@@ -64,10 +64,10 @@ defmodule ExplorerWeb.TransactionView do
     Number.to_string!(gas)
   end
 
-  def format_usd(_, %Token{usd_value: nil}), do: nil
-  def format_usd(nil, _), do: nil
+  def formatted_usd(_, %Token{usd_value: nil}), do: nil
+  def formatted_usd(nil, _), do: nil
 
-  def format_usd(value, %Token{usd_value: usd_value}) do
+  def formatted_usd(value, %Token{usd_value: usd_value}) do
     with {:ok, wei} <- Wei.cast(value),
          ether <- Wei.to(wei, :ether),
          usd <- Decimal.mult(ether, usd_value) do
@@ -78,22 +78,22 @@ defmodule ExplorerWeb.TransactionView do
     end
   end
 
-  def format_usd_transaction_fee(nil, _token), do: nil
+  def formatted_usd_transaction_fee(nil, _token), do: nil
 
-  def format_usd_transaction_fee(%Transaction{} = transaction, token) do
+  def formatted_usd_transaction_fee(%Transaction{} = transaction, token) do
     transaction
     |> Chain.fee(:wei)
     |> case do
       {:actual, actual} -> actual
       {:maximum, maximum} -> maximum
     end
-    |> format_usd(token)
+    |> formatted_usd(token)
   end
 
-  def format_usd_value(%Transaction{value: nil}, _token), do: nil
+  def formatted_usd_value(%Transaction{value: nil}, _token), do: nil
 
-  def format_usd_value(%Transaction{value: value}, token) do
-    format_usd(value, token)
+  def formatted_usd_value(%Transaction{value: value}, token) do
+    formatted_usd(value, token)
   end
 
   def formatted_age(%Transaction{block: block}) do

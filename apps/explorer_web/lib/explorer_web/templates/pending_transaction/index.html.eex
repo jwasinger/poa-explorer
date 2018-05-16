@@ -1,14 +1,17 @@
 <section class="container__section">
-    <div class="blocks__headline">
-      <h1 class="blocks__headline-title">
-        <%= gettext("Showing %{count} Pending Transactions", count: @transaction_count) %>
+    <div>
+      <h1>
+        Transactions
       </h1>
+      <p>
+        <%= gettext("Showing %{count} Pending Transactions", count: @transaction_count) %>
+      </p>
     </div>
     <div>
       <ul class="nav nav-tabs">
         <li class="nav-item">
           <%= link(
-                gettext("Transactions"),
+                gettext("Validated"),
                 class: "nav-link",
                 to: transaction_path(@conn, :index, @conn.assigns.locale)
               ) %>
@@ -41,7 +44,7 @@
             <%= for transaction <- @transactions do %>
               <tr>
                 <td>
-                  <div class="transactions__dot transactions__dot--pending"></div>
+                  <div class="transaction__dot transaction__dot--pending"></div>
                 </td>
                 <td>
                 <%= link(transaction.hash |> String.slice(2..7),to: transaction_path(@conn, :show, @conn.assigns.locale, transaction.hash)) %>

@@ -1,12 +1,15 @@
 <section class="container__section">
   <div>
     <h1>
+      Blocks
+    </h1>
+    <p>
       <%= gettext(
             "Showing #%{start_block} to #%{end_block}",
             start_block: List.first(@blocks.entries).number,
             end_block: List.last(@blocks.entries).number
           ) %>
-    </h1>
+    </p>
   </div>
   <div class="panels container__subsection">
     <div class="panels__container">

@@ -77,15 +77,19 @@
                 </td>
                 <td>
                   <%= link(internal_transaction.transaction.block.number,
-                    to: block_path(@conn, :show, @conn.assigns.locale, internal_transaction.transaction.block.number),
+                    to: block_path(@conn, :show, @conn.assigns.locale, internal_transaction.transaction.block.number)
                     ) %>
                 </td>
                 <td><%= ExplorerWeb.BlockView.age(internal_transaction.transaction.block) %></td>
                 <td>
-                  <%= link(internal_transaction.from_address.hash |> String.slice(2..7),to: address_path(@conn, :show, @conn.assigns.locale, internal_transaction.from_address.hash)) %>
+                  <%= link to: address_path(@conn, :show, @conn.assigns.locale, internal_transaction.from_address.hash) do %>
+                    <%= String.slice(internal_transaction.from_address.hash, 0..2) %> <i class="fas fa-ellipsis-v"></i> <%= String.slice(internal_transaction.from_address.hash, -3..-1) %>
+                  <% end %>
                 </td>
                 <td>
-                  <%= link(internal_transaction.to_address.hash |> String.slice(2..7),to: address_path(@conn, :show, @conn.assigns.locale, internal_transaction.to_address.hash)) %>
+                  <%= link to: address_path(@conn, :show, @conn.assigns.locale, internal_transaction.to_address.hash) do %>
+                    <%= String.slice(internal_transaction.to_address.hash, 0..2) %> <i class="fas fa-ellipsis-v"></i> <%= String.slice(internal_transaction.to_address.hash, -3..-1) %>
+                  <% end %>
                 </td>
                 <td><%= ExplorerWeb.TransactionView.value(internal_transaction) %></td>
               </tr>

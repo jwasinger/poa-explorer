@@ -19,11 +19,15 @@
         </th>
         <td class="">
           <i class="fa fa-address-card"></i>
-          <%= link(transaction.from_address.hash |> String.slice(2..7), to: address_path(@conn, :show, @conn.assigns.locale, transaction.from_address.hash)) %>
+          <%= link to: address_path(@conn, :show, @conn.assigns.locale, transaction.from_address.hash) do %>
+            <%= String.slice(transaction.from_address.hash, 0..2) %> <i class="fas fa-ellipsis-v"></i> <%= String.slice(transaction.from_address.hash, -3..-1) %>
+          <% end %>
         </td>
         <td>
           <i class="fa fa-file"></i>
-          <%= link(transaction.to_address.hash |> String.slice(2..7),to: address_path(@conn, :show, @conn.assigns.locale, transaction.to_address.hash)) %>
+          <%= link to: address_path(@conn, :show, @conn.assigns.locale, transaction.to_address.hash) do %>
+            <%= String.slice(transaction.to_address.hash, 0..2) %> <i class="fas fa-ellipsis-v"></i> <%= String.slice(transaction.to_address.hash, -3..-1) %>
+          <% end %>
         </td>
         <td><%= ExplorerWeb.TransactionView.value(transaction, include_label: false) %> </td>
         <td><%= transaction.block.timestamp |> Timex.from_now() %></td>

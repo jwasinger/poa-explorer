@@ -35,7 +35,9 @@
         <td><%= block.gas_used |> Cldr.Number.to_string! %></td>
         <td>
           <i class="fa fa-address-card"></i>
-          <%= link(block.miner |> String.slice(2..7),to: block_path(@conn, :show, @conn.assigns.locale, block.number) ) %>
+          <%= link to: block_path(@conn, :show, @conn.assigns.locale, block.number) do %>
+            <%= String.slice(block.miner, 0..2) %> <i class="fas fa-ellipsis-v"></i> <%= String.slice(block.miner, -3..-1) %>
+          <% end %>
         </td>
       </tr>
       <% end %>

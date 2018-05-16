@@ -14,9 +14,9 @@
     <tbody>
       <%= for transaction <- @chain.transactions do %>
       <tr>
-        <th>
+        <td>
           <%= link(transaction.hash |> String.slice(2..7),to: transaction_path(@conn, :show, @conn.assigns.locale, transaction.hash)) %>
-        </th>
+        </td>
         <td class="">
           <i class="fa fa-address-card"></i>
           <%= link to: address_path(@conn, :show, @conn.assigns.locale, transaction.from_address.hash) do %>

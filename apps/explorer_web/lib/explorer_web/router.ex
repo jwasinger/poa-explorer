@@ -46,12 +46,12 @@ defmodule ExplorerWeb.Router do
     resources "/addresses", AddressController, only: [:show] do
       resources("/transactions", AddressTransactionController, only: [:index], as: :transaction)
 
-      resources(
-        "/internal_transactions",
-        AddressInternalTransactionController,
-        only: [:index],
-        as: :internal_transaction
-      )
+     # resources(
+     #   "/internal_transactions",
+     #   AddressInternalTransactionController,
+     #   only: [:index],
+     #   as: :internal_transaction
+     # )
     end
 
     get("/search", ChainController, :search)

@@ -3,9 +3,9 @@ use Mix.Config
 # Configure your database
 config :explorer, Explorer.Repo,
   adapter: Ecto.Adapters.Postgres,
-  database: "db_name",
-  username: "username",
-  password: "password",
+  database: "ewasm",
+  username: "ewasm",
+  password: "2007109",
   hostname: "localhost",
   loggers: [],
   pool_size: 20,

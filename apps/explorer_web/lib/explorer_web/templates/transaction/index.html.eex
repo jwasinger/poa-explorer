@@ -14,13 +14,6 @@
                 to: transaction_path(@conn, :index, @conn.assigns.locale)
               ) %>
         </h2>
-        <h2 class="transactions__tab">
-          <%= link(
-                gettext("Pending"),
-                class: "transactions__tab-link",
-                to: pending_transaction_path(@conn, :index, @conn.assigns.locale)
-              ) %>
-        </h2>
       </div>
       <div class="transactions__container">
         <table class="transactions__table">

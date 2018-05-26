@@ -73,12 +73,9 @@
               </td>
               <td class="transactions__column transactions__column--hash">
                 <div class="transactions__hash">
-                  <%= link(
-                        hash(transaction),
-                        to: transaction_path(@conn, :show, @conn.assigns.locale, transaction),
-                        class: "transactions__link transactions__link--truncated transactions__link--long-hash",
-                        "data-test": "transaction_hash"
-                      ) %>
+                  <p class="transactions__link transactions__link--truncated transactions__link--long-hash">
+                    <%= hash(transaction) %>
+                  </p>
                 </div>
               </td>
               <td class="transactions__column transactions__column--block transactions__column--optional">

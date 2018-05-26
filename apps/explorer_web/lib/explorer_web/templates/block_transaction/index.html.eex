@@ -25,11 +25,7 @@
           <div class="block__item">
             <dt class="block__item-key"><%= gettext "Parent Hash" %></dt>
             <dd class="block__item-value" title="<%= @block.parent_hash %>">
-              <%= link(
-                    @block.parent_hash,
-                    class: "block__link",
-                    to: block_path(@conn, :show, @conn.assigns.locale, @block.number - 1)
-                  ) %>
+             <p class="block__link"><%= @block.parent_hash %></p>
             </dd>
           </div>
           <div class="block__item">

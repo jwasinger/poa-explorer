@@ -24,17 +24,11 @@ defmodule ExplorerWeb.TransactionController do
                receipt: :optional
              }
            ) do
-      
-      internal_transactions =
-        Chain.transaction_hash_to_internal_transactions(
-          transaction.hash,
-          necessity_by_association: %{from_address: :required, to_address: :optional}
-        )
 
      render(
         conn,
         "show.html",
-        internal_transactions: internal_transactions,
+        internal_transactions: [],
         max_block_number: max_block_number(),
         transaction: transaction
       )
